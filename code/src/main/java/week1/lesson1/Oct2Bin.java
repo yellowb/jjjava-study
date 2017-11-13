@@ -1,6 +1,7 @@
 package week1.lesson1;
 
 import java.util.Arrays;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class Oct2Bin {
 
@@ -16,17 +17,31 @@ public class Oct2Bin {
         return null;
     }
 
-    public static String positiveOct2Bin(int i) {
+    /**
+     * Convert a positive number to binary form in char array.
+     * @param number
+     * @return
+     */
+    public static char[] positiveOct2Bin(int number) {
+        char[] binChars = new char[32];
 
-        char[] chars = new char[32];
-
-        // Make sure i is positive.
-        for(int remain = i; remain >= 2;) {
-            //TODO
+        // Convert from Oct -> Bin
+        int remainder = number; // The remaining of input number.
+        int binIndex = 0;   // Position to write into binChars.
+        for (; remainder >= 2; ++binIndex, remainder /= 2) {
+            binChars[binIndex] = (char) ((remainder % 2) + 48);  // Store '1' if remainder is 1, '0' if 0
         }
 
+        // The last bin char.
+        if(remainder > 0) {
+            binChars[binIndex] = (char) (remainder + 48);
+        }
 
-        return null;
+        // Fill the un-touched positions
+        Arrays.fill(binChars, ++binIndex, 32, '0');
+        ArrayUtils.reverse(binChars);
+
+        return binChars;
     }
 
     // Seems no use!
@@ -45,7 +60,13 @@ public class Oct2Bin {
     }
 
     public static void main(String[] args) {
-        System.out.println(pad("1111", 3, '0'));
+
+//        System.out.println(pad("1111", 7, '0'));
+
+        int a = 14;
+
+        System.out.println(positiveOct2Bin(a));
+
     }
 
 }
