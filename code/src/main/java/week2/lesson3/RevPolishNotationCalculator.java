@@ -9,5 +9,14 @@ public class RevPolishNotationCalculator {
 
     private GoodStack stack;
 
-
+    /**
+     * 解析并计算后缀表达式
+     * @param exp
+     * @return 计算结果
+     * @throws IllegalArgumentException 如果不是一个合法的后缀表达式
+     */
+    public int calculate(String exp) throws IllegalArgumentException {
+        //TODO
+        return 0;
+    }
 }
