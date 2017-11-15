@@ -5,28 +5,32 @@ package week2.lesson3;
  */
 public class GoodStack<T> {
 
-    private T[] data;
+    private Object[] data;
     private int size;
     private int top = 0; // 指向栈的顶部
 
     public GoodStack(int size) {
         this.size = size;
-        this.data = new T[size];
+        this.data = new Object[size];
     }
 
-    public void push(int num) {
+    public int length() {
+        return top;
+    }
+
+    public void push(T num) {
         checkUpperBound();
         data[top++] = num;
     }
 
-    public int pop() {
+    public T pop() {
         checkLowerBound();
-        return data[--top];
+        return (T) data[--top];
     }
 
-    public int getTop() {
+    public T getTop() {
         checkLowerBound();
-        return data[top - 1];
+        return (T) data[top - 1];
     }
 
     public boolean isEmpty() {
@@ -42,20 +46,22 @@ public class GoodStack<T> {
 
     /**
      * Check the 'top' pointer is pointed within the valid range.
+     *
      * @throws ArrayIndexOutOfBoundsException
      */
     private void checkUpperBound() throws ArrayIndexOutOfBoundsException {
-        if(this.top >= this.size) {
+        if (this.top >= this.size) {
             throw new ArrayIndexOutOfBoundsException(this.top);
         }
     }
 
     /**
      * Check the 'top' pointer is pointed within the valid range.
+     *
      * @throws ArrayIndexOutOfBoundsException
      */
     private void checkLowerBound() throws ArrayIndexOutOfBoundsException {
-        if(this.top <= 0) {
+        if (this.top <= 0) {
             throw new ArrayIndexOutOfBoundsException(this.top - 1);
         }
     }

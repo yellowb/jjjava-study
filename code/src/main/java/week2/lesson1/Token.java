@@ -10,7 +10,8 @@ public class Token {
         MULT,   // 乘号
         DIV,    // 除号
         INT,    // 数字
-        NONE,   // 空白字符
+        BLANK,  // 空格
+        NONE,   // 其它
     }
 
     public TokenType tokenType;

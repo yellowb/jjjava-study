@@ -138,6 +138,8 @@ public class ArithmeticTokenReader implements TokenReader {
                     return new Token(TokenType.MULT, s);
                 case "/":
                     return new Token(TokenType.DIV, s);
+                case " ":
+                    return new Token(TokenType.BLANK, s);
                 default:
                     return new Token(TokenType.NONE, s);
             }
