@@ -9,6 +9,8 @@
 1. Byte.MAX_VALUE + 1 会隐式向上转型成int
 2. 向上提升时会保持符号位
 3. 向下转型时会丢失精度或符号位
+4. byte -> short,char → int → long → float → double
+5. boolean不能转换成数值
 
 # Problem.4 浮点数在JVM中的存储形式
 1. 没记错应该是IEEE754, 待查证
