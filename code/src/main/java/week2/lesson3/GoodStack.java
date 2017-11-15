@@ -3,15 +3,15 @@ package week2.lesson3;
 /**
  * 一个逻辑比教程中提供的更完善的Stack
  */
-public class GoodStack {
+public class GoodStack<T> {
 
-    private int[] data;
+    private T[] data;
     private int size;
     private int top = 0; // 指向栈的顶部
 
     public GoodStack(int size) {
         this.size = size;
-        this.data = new int[size];
+        this.data = new T[size];
     }
 
     public void push(int num) {
