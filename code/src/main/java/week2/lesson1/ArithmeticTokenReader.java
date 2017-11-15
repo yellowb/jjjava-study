@@ -8,6 +8,9 @@ import week2.lesson1.Token.TokenType;
 
 /**
  * 能读取String中Token的Reader
+ *
+ * !!暂时不支持中间有空白字符
+ *
  */
 public class ArithmeticTokenReader implements TokenReader {
 
