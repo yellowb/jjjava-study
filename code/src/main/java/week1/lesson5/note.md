@@ -11,5 +11,21 @@
 # 注意包装类的cache
 valueOf函数会在一定范围内从cache中取对象
 
+# Problem.3 修改Long.equals()的行为
+使得
+```java
+System.out.println(new Long(1).equals(1));
+```
+输出true. 基本思路就是把原先 instanceof 的判断修改一下, 改成所有数值包装类的基类Number, 这样不管自动装箱生成的是Long/Integer/Short等等都可以判断了.
+```java
+public boolean equals(Object obj) {
+//        if (obj instanceof Long) {
+        if (obj instanceof Number) {
+//            return value == ((Long)obj).longValue();
+            return value == ((Number)obj).longValue();
+        }
+        return false;
+    }
+```
 
 
