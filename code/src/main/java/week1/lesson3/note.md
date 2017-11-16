@@ -17,7 +17,7 @@ public void fn(Object this, int a, int b) {
 ```
 
 # 最后字符串的例子
-主要是看某个token右边的赋值表达式是否能够在编译器被计算出结果, 也就是编译器常量, 如果是的话, 就会放到JVM的 MetaData 区, 字面量相同的字符串常量全局只会保存一份, 所以有些能用 == 比较的结果为 true.
+主要是看某个token右边的赋值表达式是否能够在编译器被计算出结果, 也就是编译器常量, 如果是的话, 就会放到JVM的constant pool, 字面量相同的字符串常量全局只会保存一份, 所以有些能用 == 比较的结果为 true.
 结合Bytecode看.
 
 参考: [Java-字节码指令](http://blog.xiaoxiaomo.com/2016/04/01/Java-%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/ "Java-字节码指令")
