@@ -1,4 +1,4 @@
-# Java语言的品味(二)
+# Java语言的品味(一)
 1. static
 2. final
 
