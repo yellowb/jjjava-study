@@ -1,3 +1,7 @@
+# Java语言的品味(二)
+1. static
+2. final
+
 # 函数都是在JVM中只有一份的
 不管函数是不是被定义为static
 
