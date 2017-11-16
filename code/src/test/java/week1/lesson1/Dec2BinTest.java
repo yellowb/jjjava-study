@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class Dec2BinTest {
 
     @Test
-    public void test0() {
+    public void test_0() {
         int n = 0;
         assertEquals("Convert " + n + " to binary didn't match", pad(Integer.toBinaryString(n), 32, '0'), Dec2Bin.dec2Bin(n));
     }

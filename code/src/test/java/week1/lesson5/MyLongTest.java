@@ -11,12 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class MyLongTest {
 
     @Test
-    public void testMyLongEquals() {
+    public void test_MyLong_Equals_Should_Be_True() {
         assertTrue("MyLong.equals() should be true.", new MyLong(1).equals(1));
     }
 
     @Test
-    public void testLongEquals() {
+    public void test_Long_Equals_Should_Be_False() {
         assertFalse("Long.equals() should be true.", new Long(1).equals(1));
     }
 

@@ -34,7 +34,7 @@ public class ArithmeticTokenReaderTest {
     private List<Token> tokens = Arrays.asList(tokenArr);
 
     @Test
-    public void testTokenReader() throws IOException {
+    public void test_TokenReader_Should_Tokenize_Correctly() throws IOException {
 
         List<Token> localTokens = new ArrayList<Token>();
 
