@@ -24,3 +24,5 @@ Study Notes of [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775 "进�
 ## Week.3
 ### Lesson.1 - 深入理解函数调用（上）
 - [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week3/lesson1/note.md "学习笔记")
+### Lesson.2 - 深入理解函数调用（下）
+- [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week3/lesson2/note.md "学习笔记")
