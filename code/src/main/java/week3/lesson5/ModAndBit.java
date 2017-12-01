@@ -21,8 +21,6 @@ public class ModAndBit {
         end = System.currentTimeMillis();
 
         System.out.println("Time for using & :" + (end - start) + " ms.");
-
-
     }
 
     public static void bitOp() {
