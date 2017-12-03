@@ -10,7 +10,7 @@ public class Node<T extends Comparable<T>> implements Comparable<T> {
     public T data;
 
     public Node left;
-    
+
     public Node right;
 
     public Node(T d) {
