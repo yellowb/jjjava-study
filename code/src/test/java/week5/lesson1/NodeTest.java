@@ -16,7 +16,7 @@ public class NodeTest {
         Node n2 = new Node(2);
         Node n3 = new Node(3);
 
-        List<Node> nodes = new ArrayList<Node>();
+        List<Node> nodes = new ArrayList<>();
         nodes.add(n2);
         nodes.add(n1);
         nodes.add(n3);
