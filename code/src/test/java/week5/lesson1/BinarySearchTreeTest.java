@@ -27,4 +27,9 @@ public class BinarySearchTreeTest {
         assertTrue("Can't match 2 in BST.", bst.contains(2));
     }
 
+    @Test
+    public void test_BST_should_not_contains_5() {
+        assertFalse("Can't match 5 in BST.", bst.contains(5));
+    }
+
 }
