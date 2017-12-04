@@ -5,7 +5,7 @@ package week5.lesson1;
  *
  * @param <T>
  */
-public class Node<T extends Comparable<T>> implements Comparable<T> {
+public class Node<T extends Comparable<T>> implements Comparable<Node> {
 
     public T data;
 
@@ -18,7 +18,7 @@ public class Node<T extends Comparable<T>> implements Comparable<T> {
     }
 
     @Override
-    public int compareTo(T o) {
-        return this.compareTo(o);
+    public int compareTo(Node o) {
+        return this.data.compareTo((T) o.data);
     }
 }
