@@ -1,5 +1,8 @@
 package week5.lesson1;
 
+import java.util.Queue;
+import java.util.LinkedList;
+
 import week2.lesson3.GoodStack;
 
 import static week5.lesson1.Node.NodeState.*;
@@ -136,6 +139,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 }
                 case END:
                 default: {
+                    current.state = NOOP;
                     stack.pop();
                 }
             }
@@ -176,6 +180,52 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Go through BST by layer from top to bottom.
+     */
+    public void layerOrder() {
+
+        if (root == null) {
+            return;
+        }
+
+        // Root as the 1st node to be the queue head.
+        Node current = root;
+        Queue<Node> queue = new LinkedList();
+        queue.offer(current);
+
+        while (!queue.isEmpty()) {
+            current = queue.peek();
+            switch (current.state) {
+                case NOOP: {
+                    System.out.print(current.data + " ");
+                    current.state = LEFT;
+                    break;
+                }
+                case LEFT: {
+                    if (current.left != null) {
+                        queue.offer(current.left);
+                    }
+                    current.state = RIGHT;
+                    break;
+                }
+                case RIGHT: {
+                    if (current.right != null) {
+                        queue.offer(current.right);
+                    }
+                    current.state = END;
+                    break;
+                }
+                case END:
+                default: {
+                    current.state = NOOP;
+                    queue.poll();
+                }
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 
@@ -184,11 +234,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         bst.insert(3);
         bst.insert(2);
         bst.insert(4);
+        bst.insert(0);
 
 //        System.out.println(bst.contains(3));
         bst.preOrderWithRecursive();
         System.out.println();
         bst.preOrderWithoutRecursive();
+        System.out.println();
+        bst.layerOrder();
     }
 
 }
