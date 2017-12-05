@@ -274,11 +274,15 @@ public class BinarySearchTree<T extends Comparable<T>> {
         bst.insert(0);
 
 //        System.out.println(bst.contains(3));
-        bst.preOrderWithRecursive();
-        out.println();
-        bst.preOrderWithoutRecursive();
-        out.println();
-        bst.layerOrder();
+//        bst.preOrderWithRecursive();
+//        out.println();
+//        bst.preOrderWithoutRecursive();
+//        out.println();
+//        bst.layerOrder();
+
+        Node<Integer> one = bst.findNode(3);
+        Node<Integer> successor = bst.successor(one);
+        out.println(successor);
     }
 
 }
