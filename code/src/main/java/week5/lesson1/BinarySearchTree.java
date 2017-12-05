@@ -12,10 +12,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     private Node<T> root;
 
-    public Node<T> getRoot() {
-        return root;
-    }
-
     /**
      * Insert a node into BST
      *
@@ -52,23 +48,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     /**
-     * Return true if BST contains input node.
-     *
+     * Return a node with its value equals to the input value.
      * @param i
      * @return
      */
-    public boolean contains(T i) {
+    public Node<T> findNode(T i) {
         if (root == null) {
-            return false;
+            return null;
         }
 
         Node<T> current = root;
-        boolean found = false;
+        Node<T> found = null;
 
         while (true) {
             // i is smaller than current node.
             if (i.compareTo(current.data) == 0) {
-                found = true;
+                found = current;
                 break;
             } else if (i.compareTo(current.data) < 0) {
                 if (current.left != null) {
@@ -85,6 +80,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
             }
         }
         return found;
+    }
+
+    /**
+     * Return true if BST contains input node.
+     *
+     * @param i
+     * @return
+     */
+    public boolean contains(T i) {
+        return (findNode(i) != null);
     }
 
     /**
@@ -229,6 +234,35 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
+    /**
+     * Find the next node greater than input node.
+     * @param n
+     * @return
+     */
+    public Node<T> successor(Node<T> n) {
+        if (n == null)
+            return null;
+
+        Node<T> p;
+        // If n has right child.
+        // Then find its smallest right child.
+        if (n.right != null) {
+            p = n.right;
+            while (p.left != null) {
+                p = p.left;
+            }
+            return p;
+        // If n has no right child, then try to find its parent.
+        } else {
+            p = n.parent;
+            while (p != null && p.left != n) {
+                n = p;
+                p = n.parent;
+            }
+            return p;
+        }
+    }
+
     public static void main(String[] args) {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 
@@ -245,8 +279,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
         bst.preOrderWithoutRecursive();
         out.println();
         bst.layerOrder();
-
-
     }
 
 }
