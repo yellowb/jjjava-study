@@ -36,24 +36,10 @@ public class Node<T extends Comparable<T>> implements Comparable<Node> {
         return this.data.compareTo((T) o.data);
     }
 
-    public static void main(String[] args) {
-        Node n1 = new Node(1);
-        Node n2 = new Node(2);
-        Node n3 = new Node(3);
-
-        List<Node> l = new ArrayList<Node>();
-        l.add(n2);
-        l.add(n1);
-        l.add(n3);
-        Collections.sort(l);
-
-        System.out.println(l);
-    }
-
     /**
      * Node states to support traversing BST without recursive
      */
     enum NodeState {
-        NOOP, SELF, LEFT, RIGHT
+        NOOP, SELF, LEFT, RIGHT, END
     }
 }
