@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static week5.lesson1.Node.NodeState.NOOP;
+
 /**
  * Tree node
  *
@@ -17,8 +19,11 @@ public class Node<T extends Comparable<T>> implements Comparable<Node> {
 
     public Node right;
 
+    public NodeState state;
+
     public Node(T d) {
         this.data = d;
+        this.state = NOOP;
     }
 
     @Override
@@ -43,5 +48,12 @@ public class Node<T extends Comparable<T>> implements Comparable<Node> {
         Collections.sort(l);
 
         System.out.println(l);
+    }
+
+    /**
+     * Node states to support traversing BST without recursive
+     */
+    enum NodeState {
+        NOOP, SELF, LEFT, RIGHT
     }
 }
