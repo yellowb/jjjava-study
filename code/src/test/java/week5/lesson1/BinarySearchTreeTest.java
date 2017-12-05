@@ -14,6 +14,7 @@ public class BinarySearchTreeTest {
 
     @Before
     public void buildBST() {
+        // Build a BST
         bst = new BinarySearchTree<>();
 
         bst.insert(2);
