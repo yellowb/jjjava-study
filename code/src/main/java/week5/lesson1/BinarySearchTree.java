@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import week2.lesson3.GoodStack;
 
+import static java.lang.System.*;
 import static week5.lesson1.Node.NodeState.*;
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -34,6 +35,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                     current = current.left;
                 } else {
                     current.left = new Node(i);
+                    current.left.parent = current;  // set parent
                     break;
                 }
             } else {
@@ -41,6 +43,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                     current = current.right;
                 else {
                     current.right = new Node(i);
+                    current.right.parent = current; // set parent
                     break;
                 }
             }
@@ -95,7 +98,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (current == null) {
             return;
         } else {
-            System.out.print(current.data + " ");
+            out.print(current.data + " ");
             preOrderWithRecursive(current.left);
             preOrderWithRecursive(current.right);
         }
@@ -119,7 +122,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             current = stack.getTop();
             switch (current.state) {
                 case NOOP: {
-                    System.out.print(current.data + " ");
+                    out.print(current.data + " ");
                     current.state = LEFT;
                     break;
                 }
@@ -158,7 +161,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return;
         } else {
             midOrderWithRecursive(current.left);
-            System.out.print(current.data + " ");
+            out.print(current.data + " ");
             midOrderWithRecursive(current.right);
         }
     }
@@ -176,7 +179,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         } else {
             postOrderWithRecursive(current.left);
             postOrderWithRecursive(current.right);
-            System.out.println(current.data);
+            out.println(current.data);
         }
     }
 
@@ -198,7 +201,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             current = queue.peek();
             switch (current.state) {
                 case NOOP: {
-                    System.out.print(current.data + " ");
+                    out.print(current.data + " ");
                     current.state = LEFT;
                     break;
                 }
@@ -238,10 +241,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 //        System.out.println(bst.contains(3));
         bst.preOrderWithRecursive();
-        System.out.println();
+        out.println();
         bst.preOrderWithoutRecursive();
-        System.out.println();
+        out.println();
         bst.layerOrder();
+
+
     }
 
 }

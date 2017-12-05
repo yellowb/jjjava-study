@@ -19,6 +19,8 @@ public class Node<T extends Comparable<T>> implements Comparable<Node> {
 
     public Node right;
 
+    public Node parent;
+
     public NodeState state;
 
     public Node(T d) {
