@@ -49,6 +49,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     /**
      * Return a node with its value equals to the input value.
+     *
      * @param i
      * @return
      */
@@ -236,6 +237,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     /**
      * Find the next node greater than input node.
+     *
      * @param n
      * @return
      */
@@ -252,7 +254,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 p = p.left;
             }
             return p;
-        // If n has no right child, then try to find its parent.
+            // If n has no right child, then try to find its parent.
         } else {
             p = n.parent;
             while (p != null && p.left != n) {
@@ -260,6 +262,55 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 p = n.parent;
             }
             return p;
+        }
+    }
+
+    /**
+     * Remove a node from BST.
+     * @param n
+     */
+    public void remove(Node<T> n) {
+        Node<T> p = n.parent;
+        Node<T> next, child;
+
+        // 叶子结点，直接删除即可。要考虑待删除结点是root的情况。
+        if (n.left == null && n.right == null) {
+            if (n == root) {
+                root = null;
+                return;
+            }
+
+            if (n == p.left)
+                p.left = null;
+            else if (n == p.right)
+                p.right = null;
+        }
+        // 内部结点，把它的后继的值拷进来，然后递归删除它的后继。
+        else if (n.left != null && n.right != null) {
+            next = successor(n);
+            n.data = next.data;
+            remove(next);
+        }
+        // 只有一个孩子的结点，把它的孩子交给它的父结点即可。
+        else {
+            if (n.left != null)
+                child = n.left;
+            else
+                child = n.right;
+
+            if (n == root) {
+                child.parent = null;
+                root = child;
+                return;
+            }
+
+            if (n == p.left) {
+                child.parent = p;
+                p.left = child;
+            } else {
+                child.parent = p;
+                p.right = child;
+            }
         }
     }
 
