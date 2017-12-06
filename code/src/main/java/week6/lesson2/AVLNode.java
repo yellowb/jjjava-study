@@ -3,7 +3,7 @@ package week6.lesson2;
 import static week6.lesson2.AVLNode.NodeState.NOOP;
 
 /**
- * Created by HUANGYE2 on 12/5/2017.
+ * Created by HUANGYE2 on 12/5/2017..
  */
 public class AVLNode<T extends Comparable<T>> {
 
