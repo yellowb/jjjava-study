@@ -26,3 +26,7 @@ Study Notes of [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775 "进�
 - [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week3/lesson1/note.md "学习笔记")
 ### Lesson.2 - 深入理解函数调用（下）
 - [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week3/lesson2/note.md "学习笔记")
+
+## Week.7
+### Lesson.4 - HashMap源码解析
+- [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week7/lesson4/note.md "学习笔记")
