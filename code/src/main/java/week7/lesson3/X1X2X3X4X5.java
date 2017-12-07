@@ -11,24 +11,66 @@ import java.util.Map;
 public class X1X2X3X4X5 {
 
     public int findAnswer(int a1, int a2, int a3, int a4, int a5) {
-        Map<Integer, Integer> map = new HashMap<>();
+        int amount = 0;
+        Map<Integer, Pair> map = new HashMap<>();
 
+        // a1x1^3 + a2x2^3 + a3x3^3 + a4x4^3 + a5x5^3 = 0
+        // =>
+        // a1x1^3 + a2x2^3 + a3x3^3 = -(a4x4^3 + a5x5^3)
+
+        // 100 ^ 2 ops for x4 & x5
         for(int i4 = -50; i4 <= 50; i4++) {
             for(int i5 = -50; i5 <= 50; i5++) {
-                //TODO
-                // Calu and put into map
+                // Calc and put into map
+                int result = -(a4 * i4 * i4 * i4 + a5 * i5 * i5 * i5);
+                if(!map.containsKey(result)) {
+                    map.put(result, new Pair());
+                }
+                map.put(result, map.get(result).leftAddOne());
             }
         }
 
-        return 0;
+        // 100 ^ 3 ops for x1 & x2 & x3
+        for(int i1 = -50; i1 <= 50; i1++) {
+            for(int i2 = -50; i2 <= 50; i2++) {
+                for(int i3 = -50; i3 <= 50; i3++) {
+                    int result = a1 * i1 * i1 * i1 + a2 * i2 * i2 * i2 + a3 * i3 * i3 * i3;
+                    Pair p;
+                    if((p = map.get(result)) != null) {
+                        p.rightAddOne();
+                    }
+                }
+            }
+        }
+
+
+        for(Map.Entry<Integer, Pair> entry : map.entrySet()) {
+            amount += entry.getValue().leftCount * entry.getValue().rightCount;
+        }
+        return amount;
+    }
+
+    static class Pair {
+        public int leftCount = 0;
+        public int rightCount = 0;
+
+        public Pair leftAddOne() {
+            this.leftCount++;
+            return this;
+        }
+
+        public Pair rightAddOne() {
+            this.rightCount++;
+            return this;
+        }
     }
 
     public static void main(String[] args) {
-        int a1 = 0;
-        int a2 = 0;
-        int a3 = 0;
-        int a4 = 0;
-        int a5 = 0;
+        int a1 = 1;
+        int a2 = 2;
+        int a3 = 3;
+        int a4 = 4;
+        int a5 = 5;
 
         int amount = new X1X2X3X4X5().findAnswer(a1, a2, a3, a4, a5);
         System.out.println("There are " + amount + " answers.");
