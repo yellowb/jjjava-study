@@ -10,6 +10,15 @@ import java.util.Map;
  */
 public class X1X2X3X4X5 {
 
+    /**
+     * 5-level-loop, slow implementation.
+     * @param a1
+     * @param a2
+     * @param a3
+     * @param a4
+     * @param a5
+     * @return
+     */
     public int findAnswerBad(int a1, int a2, int a3, int a4, int a5) {
         int amount = 0;
 
@@ -31,6 +40,15 @@ public class X1X2X3X4X5 {
         return amount;
     }
 
+    /**
+     *
+     * @param a1
+     * @param a2
+     * @param a3
+     * @param a4
+     * @param a5
+     * @return
+     */
     public int findAnswerGood(int a1, int a2, int a3, int a4, int a5) {
         int amount = 0;
         Map<Integer, Pair> map = new HashMap<>();
@@ -71,6 +89,9 @@ public class X1X2X3X4X5 {
         return amount;
     }
 
+    /**
+     * A data structure to store how many times the left part & right part calculation result equals to a value.
+     */
     static class Pair {
         public int leftCount = 0;
         public int rightCount = 0;
