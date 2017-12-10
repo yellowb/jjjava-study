@@ -42,9 +42,10 @@ public class AllRangement {
     }
 
     public static void main(String[] args) {
-        char[] tokens = "abc".toCharArray();
+        char[] tokens = "1234".toCharArray();
         List<String> rangements = new AllRangement().allRangement(tokens);
         System.out.println(rangements);
+        System.out.println(rangements.size());
     }
 
 }
