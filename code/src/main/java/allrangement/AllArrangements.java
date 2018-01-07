@@ -6,23 +6,23 @@ import java.util.List;
 /**
  * 全排列
  */
-public class AllRangement {
+public class AllArrangements {
 
-    public List<String> allRangement(char[] tokens) {
+    public List<String> allArrangement(char[] tokens) {
 
-        List<String> rangements = new LinkedList<>();
-        allRangement(tokens, 0, tokens.length, rangements);
+        List<String> arrangements = new LinkedList<>();
+        allArrangement(tokens, 0, tokens.length, arrangements);
 
-        return rangements;
+        return arrangements;
     }
 
-    public void allRangement(char[] tokens, int start, int end, List<String> rangements) {
+    public void allArrangement(char[] tokens, int start, int end, List<String> rangements) {
         if (start == end - 1) {
             rangements.add(new String(tokens));
         } else {
             for (int i = start; i < end; i++) {
                 swap(tokens, start, i);
-                allRangement(tokens, start + 1, end, rangements);
+                allArrangement(tokens, start + 1, end, rangements);
                 swap(tokens, start, i);
             }
         }
@@ -43,9 +43,9 @@ public class AllRangement {
 
     public static void main(String[] args) {
         char[] tokens = "1234".toCharArray();
-        List<String> rangements = new AllRangement().allRangement(tokens);
-        System.out.println(rangements);
-        System.out.println(rangements.size());
+        List<String> arrangements = new AllArrangements().allArrangement(tokens);
+        System.out.println(arrangements);
+        System.out.println(arrangements.size());
     }
 
 }

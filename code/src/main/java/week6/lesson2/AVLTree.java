@@ -127,7 +127,7 @@ public class AVLTree<T extends Comparable<T>> {
             root = pLeftSon;
         }
 
-        // 把原root变成原左孩子的右孩子
+        // 把原root变成原左孩子的右孩子 
         pLeftSon.right = p;
         p.parent = pLeftSon;
 
