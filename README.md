@@ -1,4 +1,4 @@
-# JJ-Java Study Notes 
+# JJ - Java Study Notes 
 Study Notes of [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775 "进击的Java新人")
 
 ## Week.1
