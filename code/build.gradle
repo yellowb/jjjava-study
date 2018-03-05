@@ -6,8 +6,13 @@
  * user guide available at https://docs.gradle.org/4.3/userguide/java_library_plugin.html
  */
 
+plugins {
+    id "org.sonarqube" version "2.6.2"
+}
+
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -20,4 +25,6 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     testCompile "junit:junit:4.11"
 }
+
+
 

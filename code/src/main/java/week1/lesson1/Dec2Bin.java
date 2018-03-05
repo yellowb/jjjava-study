@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+/**
+ *
+ */
 public class Dec2Bin {
 
     /**
@@ -53,12 +56,12 @@ public class Dec2Bin {
         int remainder = number; // The remaining of input number.
         int binIndex = 0;   // Position to write into binChars.
         for (; remainder >= 2; ++binIndex, remainder /= 2) {
-            binChars[binIndex] = (char) ((remainder % 2) + 48);  // Store '1' if remainder is 1, '0' if 0. 48 is '0'.
+            binChars[binIndex] = (char)((remainder % 2) + 48);  // Store '1' if remainder is 1, '0' if 0. 48 is '0'.
         }
 
         // The last bin char.
         if (remainder > 0) {
-            binChars[binIndex] = (char) (remainder + 48);
+            binChars[binIndex] = (char)(remainder + 48);
         }
 
         // Fill the un-touched positions

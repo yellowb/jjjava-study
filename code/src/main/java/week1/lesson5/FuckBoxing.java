@@ -26,11 +26,11 @@ public class FuckBoxing {
         System.out.println(b == d);  // true
         System.out.println(b.equals(d)); // true
 
-        System.out.println(((Long) 1L) == 1); // true, L24 左边先AutoBoxing变成对象, 再AutoUnBoxing变成long, 右边自动转型成long
+        System.out.println(((Long)1L) == 1); // true, L24 左边先AutoBoxing变成对象, 再AutoUnBoxing变成long, 右边自动转型成long
         System.out.println(new Long(1).equals(1)); //  false, 一个是new Long对象, 一个是Integer对象
 
         Long e = 100L;
-        Long f = 100L;
+        Long f = 100l;
         System.out.println(e == f);  // true, valueOf()从cache中取对象
         e = 1000L;
         f = 1000L;
