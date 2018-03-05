@@ -234,6 +234,7 @@ public class AVLTree<T extends Comparable<T>> {
         avlTree.insert(4);
         avlTree.insert(1);
 
+
         avlTree.layerOrder(); 
     }
 
