@@ -1,7 +1,7 @@
 # JJ - Java Study Notes 
 Study Notes of  [进击的Java新人](https://zhuanlan.zhihu.com/p/24393775 "进击的Java新人")
 
-## Week.1
+## Week.1 
 ### Lesson.1 - 进制及计算机表示
 - [学习笔记](https://github.com/yellowb/jjjava-study/blob/master/code/src/main/java/week1/lesson1/note.md "学习笔记")
 ### Lesson.2 - 进制习题课
