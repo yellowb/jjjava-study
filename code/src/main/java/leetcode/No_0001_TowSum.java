@@ -9,16 +9,14 @@ public class No_0001_TowSum {
         HashMap<Integer, Integer> map = new HashMap<>(length);
 
         for (int i = 0; i < length; i++) {
-            int val = nums[i];
-            Integer diff = Integer.valueOf(target - val);
-            Integer existIdx = map.get(Integer.valueOf(val));
-            if (null == existIdx) {
-                map.put(diff, Integer.valueOf(i));
-            } else {
-                ret[0] = existIdx.intValue();
+            int el = nums[i];
+            int diff = target - el;
+            if(map.containsKey(el)) {
+                ret[0] = map.get(el);
                 ret[1] = i;
                 return ret;
             }
+            map.put(diff, i);
         }
 
         return ret;
