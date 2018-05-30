@@ -1,18 +1,23 @@
 package leetcode;
 
+import java.util.HashMap;
+
 public class No_0001_TowSum {
     public int[] twoSum(int[] nums, int target) {
         int[] ret = new int[2];
         int length = nums.length;
+        HashMap<Integer, Integer> map = new HashMap<>(length);
 
-        OUTER:
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = i + 1; j < length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    ret[0] = i;
-                    ret[1] = j;
-                    break OUTER;
-                }
+        for (int i = 0; i < length; i++) {
+            int val = nums[i];
+            Integer diff = Integer.valueOf(target - val);
+            Integer existIdx = map.get(Integer.valueOf(val));
+            if (null == existIdx) {
+                map.put(diff, Integer.valueOf(i));
+            } else {
+                ret[0] = existIdx.intValue();
+                ret[1] = i;
+                return ret;
             }
         }
 
